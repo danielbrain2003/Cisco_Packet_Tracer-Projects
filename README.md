@@ -56,7 +56,7 @@ III.Configuring IP Addresses on PCs
 
 IV.Check the Connection
 
-    1.Select the PC0 double click to enter configuration goto command prompt ping the ip address of PC1 to check the connection "ping 192.168.10.2"
+    1.Select the PC1 double click to enter configuration goto command prompt ping the ip address of PC0 to check the connection "ping 192.168.10.2"
     if you get reply then the connection is alive else recheck the above steps
 
 
