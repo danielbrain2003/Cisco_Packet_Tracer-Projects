@@ -97,50 +97,50 @@ Click on the Switch and go to the CLI tab.
 
 Enter the following commands to create two VLANs:
 
-enable
-configure terminal
-vlan 10
-name Sales
-exit
-vlan 20
-name IT
-exit
+    enable
+    configure terminal
+    vlan 10
+    name Sales
+    exit
+    vlan 20
+    name IT
+    exit
 
 Assign Switch Ports:
 
 For VLAN 10 (Sales)
 
-interface FastEthernet0/1
-switchport mode access
-switchport access vlan 10
-exit
-
-interface FastEthernet0/3
-switchport mode access
-switchport access vlan 10
-exit
-
-interface FastEthernet0/5
-switchport mode access
-switchport access vlan 10
-exit
+    interface FastEthernet0/1
+    switchport mode access
+    switchport access vlan 10
+    exit
+    
+    interface FastEthernet0/3
+    switchport mode access
+    switchport access vlan 10
+    exit
+    
+    interface FastEthernet0/5
+    switchport mode access
+    switchport access vlan 10
+    exit
 
 For VLAN 20 (IT)
 
-interface FastEthernet0/2
-switchport mode access 
-switchport access vlan 20
-exit
-
-interface FastEthernet0/4
-switchport mode access
-switchport access vlan 20
-exit
-
-interface FastEthernet0/6
-switchport mode access
-switchport access vlan 20
-exit
+    interface FastEthernet0/2
+    switchport mode access 
+    switchport access vlan 20
+    exit
+    
+    interface FastEthernet0/4
+    switchport mode access
+    switchport access vlan 20
+    exit
+    
+    interface FastEthernet0/6
+    switchport mode access
+    switchport access vlan 20
+    exit
 
 Wireless Router Configuration
 
@@ -159,24 +159,30 @@ Configure IP Addresses for PCs and Laptops
 To ensure connectivity within each VLAN, assign static IP addresses within the respective VLAN subnets.
 
 VLAN 10 (Sales):
-
-PC-1: 192.168.10.2, Subnet Mask 255.255.255.0
-PC-3: 192.168.10.3, Subnet Mask 255.255.255.0
-Laptop-1: 192.168.10.4, Subnet Mask 255.255.255.0
+    
+    PC-1: 192.168.10.2, Subnet Mask 255.255.255.0
+    PC-3: 192.168.10.3, Subnet Mask 255.255.255.0
+    Laptop-1: 192.168.10.4, Subnet Mask 255.255.255.0
 
 VLAN 20 (IT):
 
-PC-2: 192.168.20.2, Subnet Mask 255.255.255.0
-PC-4: 192.168.20.3, Subnet Mask 255.255.255.0
-Laptop-2: 192.168.20.4, Subnet Mask 255.255.255.0
+    PC-2: 192.168.20.2, Subnet Mask 255.255.255.0
+    PC-4: 192.168.20.3, Subnet Mask 255.255.255.0
+    Laptop-2: 192.168.20.4, Subnet Mask 255.255.255.0
 
 Testing and Verification
 Verify VLAN Connectivity:
 
 Ping Within VLAN 10: From PC-1, ping Laptop-1. The ping should be successful, confirming devices on
 VLAN 10 can communicate.
+
 Ping Within VLAN 20: From PC-2, ping Laptop-2. This should also succeed.
+
 Verify VLAN Isolation:
+
 Ping Across VLANs: Attempt to ping from PC-1 (VLAN 10) to PC-2 (VLAN 20). The ping should fail,
 showing that devices on different VLANs cannot communicate. 
+
+![VLAN](https://github.com/user-attachments/assets/f7047a59-582e-4f02-ab78-a090f2fc38da)
+
   
