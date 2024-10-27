@@ -73,4 +73,109 @@ CySecAss1(iii)
   Configure OSPF Protocol and Router
 
 ![Screenshot (4)](https://github.com/danielbrain2003/Projects/assets/146718471/1dfa77fc-7a64-4d58-bb87-ac1b0be5f598)
+
+
+
+Set Up Devices and Network Topology
+
+Add Devices:
+Go to Network Devices > Switches, and add a 2950-24 Switch to the workspace.
+Go to End Devices and add 4 PCs and 2 Laptops.
+Go to Network Devices > Wireless Devices, and add 2 Linksys WRT300N Wireless Routers.
+
+Connect Devices to the Switch:
+Use Copper Straight-Through Cables to connect the 4 PCs to the Switch.
+Connect each Wireless Router to the Switch using Copper Straight-Through Cables to allow VLAN
+trunking.
+
+Configure VLANs on the Switch
+
+Step 1: Create VLANs
+
+Click on the Switch and go to the CLI tab.
+
+Enter the following commands to create two VLANs:
+
+enable
+configure terminal
+vlan 10
+name Sales
+exit
+vlan 20
+name IT
+exit
+
+Assign Switch Ports:
+
+For VLAN 10 (Sales)
+
+interface FastEthernet0/1
+switchport mode access
+switchport access vlan 10
+exit
+
+interface FastEthernet0/3
+switchport mode access
+switchport access vlan 10
+exit
+
+interface FastEthernet0/5
+switchport mode access
+switchport access vlan 10
+exit
+
+For VLAN 20 (IT)
+
+interface FastEthernet0/2
+switchport mode access 
+switchport access vlan 20
+exit
+
+interface FastEthernet0/4
+switchport mode access
+switchport access vlan 20
+exit
+
+interface FastEthernet0/6
+switchport mode access
+switchport access vlan 20
+exit
+
+Wireless Router Configuration
+
+Wireless Router 1 (for VLAN 10 - Sales)
+
+Click on Wireless Router 1 and go to the GUI tab.
+Under the Wireless section, set the SSID to Sales_WiFi.
+
+Wireless Router 2 (for VLAN 20 - IT)
+
+Click on Wireless Router 2 and go to the GUI tab.
+Set the SSID to IT_WiFi.
+
+Configure IP Addresses for PCs and Laptops
+
+To ensure connectivity within each VLAN, assign static IP addresses within the respective VLAN subnets.
+
+VLAN 10 (Sales):
+
+PC-1: 192.168.10.2, Subnet Mask 255.255.255.0
+PC-3: 192.168.10.3, Subnet Mask 255.255.255.0
+Laptop-1: 192.168.10.4, Subnet Mask 255.255.255.0
+
+VLAN 20 (IT):
+
+PC-2: 192.168.20.2, Subnet Mask 255.255.255.0
+PC-4: 192.168.20.3, Subnet Mask 255.255.255.0
+Laptop-2: 192.168.20.4, Subnet Mask 255.255.255.0
+
+Testing and Verification
+Verify VLAN Connectivity:
+
+Ping Within VLAN 10: From PC-1, ping Laptop-1. The ping should be successful, confirming devices on
+VLAN 10 can communicate.
+Ping Within VLAN 20: From PC-2, ping Laptop-2. This should also succeed.
+Verify VLAN Isolation:
+Ping Across VLANs: Attempt to ping from PC-1 (VLAN 10) to PC-2 (VLAN 20). The ping should fail,
+showing that devices on different VLANs cannot communicate. 
   
